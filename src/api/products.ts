@@ -48,6 +48,13 @@ export interface Seller {
   name: string;
   email: string;
   marketLocation: string | null;
+  stallName?: string | null;
+  stallNumber?: string | null;
+  operatingHours?: Record<string, { open: string; close: string; isClosed: boolean }>;
+  acceptsQR?: boolean;
+  hasOwnDelivery?: boolean;
+  productCount?: number;
+  categories?: string[];
 }
 
 export interface SellersResponse {
@@ -56,13 +63,28 @@ export interface SellersResponse {
   sellers?: Seller[];
 }
 
+export interface SellerProductsResponse {
+  success: boolean;
+  seller?: Seller;
+  productCount?: number;
+  categories?: string[];
+  products?: Product[];
+}
+
 // Get verified sellers (for starting chat)
-export async function getVerifiedSellers(token: string): Promise<SellersResponse> {
-  const response = await fetch(`${API_BASE_URL}/products/sellers/list`, {
+export async function getVerifiedSellers(token: string, market?: string): Promise<SellersResponse> {
+  const params = market ? `?market=${encodeURIComponent(market)}` : '';
+  const response = await fetch(`${API_BASE_URL}/products/sellers/list${params}`, {
     headers: {
       'Authorization': `Bearer ${token}`,
     },
   });
+  return response.json();
+}
+
+// Get all products for a specific seller (public)
+export async function getSellerProductsBySellerId(sellerId: string): Promise<SellerProductsResponse> {
+  const response = await fetch(`${API_BASE_URL}/products/seller/${sellerId}`);
   return response.json();
 }
 

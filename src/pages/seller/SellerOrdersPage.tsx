@@ -458,7 +458,7 @@ export function SellerOrdersPage() {
             ) : filteredOrders.length === 0 ? (
               <div className="text-center py-12 border rounded-lg border-dashed">
                 <Package className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
-                <h3 className="text-lg font-semibold mb-2">No orders found</h3>
+                <h3 className="text-lg font-semibold mb-2 text-foreground">No orders found</h3>
                 <p className="text-muted-foreground">
                   {searchQuery || dateFilter !== 'all'
                     ? 'Try adjusting your search or filters.'
@@ -552,7 +552,7 @@ export function SellerOrdersPage() {
                           {order.deliveryType === 'delivery' && order.deliveryAddress && (
                             <div className="mt-3 p-3 bg-blue-500/5 rounded-lg border border-blue-500/10">
                               <div className="flex items-center gap-2 mb-2">
-                                <Package className="h-4 w-4 text-blue-500" />
+                                <Package className="h-4 w-4 text-blue-500 dark:text-blue-400" />
                                 <span className="text-sm font-semibold">Delivery Information</span>
                                 <Badge variant="outline" className="text-blue-600 dark:text-blue-400 border-blue-500/20 bg-blue-500/10 h-5 text-[10px]">
                                   For Delivery
@@ -614,7 +614,7 @@ export function SellerOrdersPage() {
                                   variant="outline"
                                   onClick={() => handleVerifyPayment(order._id)}
                                   disabled={isVerifying}
-                                  className="border-green-200 hover:bg-green-50 text-green-700"
+                                  className="border-green-200 dark:border-green-800 hover:bg-green-50 dark:hover:bg-green-950/30 text-green-700 dark:text-green-400"
                                 >
                                   {isVerifying ? (
                                     <Loader2 className="h-3 w-3 animate-spin mr-1" />
@@ -631,7 +631,7 @@ export function SellerOrdersPage() {
                                   variant="outline"
                                   onClick={() => handleVerifyPayment(order._id)}
                                   disabled={isVerifying}
-                                  className="border-green-200 hover:bg-green-50 text-green-700"
+                                  className="border-green-200 dark:border-green-800 hover:bg-green-50 dark:hover:bg-green-950/30 text-green-700 dark:text-green-400"
                                 >
                                   {isVerifying ? (
                                     <Loader2 className="h-3 w-3 animate-spin mr-1" />
@@ -695,7 +695,7 @@ export function SellerOrdersPage() {
                                         size="sm"
                                         onClick={() => handleVerifyPayment(order._id)}
                                         disabled={isVerifying}
-                                        className="w-fit bg-green-600 hover:bg-green-700 text-white"
+                                        className="w-fit bg-green-600 hover:bg-green-700 text-white dark:text-white"
                                       >
                                         {isVerifying ? (
                                           <Loader2 className="h-3 w-3 animate-spin mr-1" />

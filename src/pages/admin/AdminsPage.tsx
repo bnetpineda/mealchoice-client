@@ -421,14 +421,14 @@ export function AdminsPage() {
                       </TableCell>
                       <TableCell>
                         {admin.isActive ? (
-                          <Badge className="bg-green-500 text-white w-fit">Active</Badge>
+                          <Badge className="bg-green-500 text-white dark:text-white w-fit">Active</Badge>
                         ) : (
                           <Badge variant="destructive" className="w-fit">Inactive</Badge>
                         )}
                       </TableCell>
                       <TableCell>
                         {admin.isMainAdmin || admin.isEmailVerified ? (
-                          <Check className="h-4 w-4 text-green-500" />
+                          <Check className="h-4 w-4 text-green-500 dark:text-green-400" />
                         ) : (
                           <X className="h-4 w-4 text-muted-foreground" />
                         )}
@@ -446,7 +446,7 @@ export function AdminsPage() {
                               size="icon"
                               title={admin.isActive ? 'Deactivate' : 'Activate'}
                               onClick={() => handleToggleActive(admin)}
-                              className={admin.isActive ? 'text-amber-600 hover:text-amber-700' : 'text-green-600 hover:text-green-700'}
+                              className={admin.isActive ? 'text-amber-600 hover:text-amber-700 dark:text-amber-400 dark:hover:text-amber-300' : 'text-green-600 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300'}
                             >
                               {admin.isActive ? <UserX className="h-4 w-4" /> : <UserCheck className="h-4 w-4" />}
                             </Button>

@@ -194,7 +194,7 @@ export function BudgetSettings() {
                   )}
 
                   {success && (
-                    <div className="flex items-center gap-2 p-3 text-sm text-green-600 bg-green-50 rounded-lg">
+                    <div className="flex items-center gap-2 p-3 text-sm text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-950/30 rounded-lg">
                       <CheckCircle className="h-4 w-4" />
                       Budget settings saved successfully!
                     </div>

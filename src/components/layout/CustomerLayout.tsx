@@ -32,7 +32,8 @@ import {
   Store,
   ClipboardList,
   Video,
-  RotateCcw
+  RotateCcw,
+  LayoutGrid
 } from 'lucide-react';
 import { useState } from 'react';
 
@@ -44,6 +45,7 @@ interface CustomerLayoutProps {
 const navItems = [
   { href: '/customer', label: 'Dashboard', icon: LayoutDashboard },
   { href: '/customer/browse', label: 'Market', icon: Store },
+  { href: '/customer/stalls', label: 'Stalls', icon: LayoutGrid },
   { href: '/customer/generate-meals', label: 'Generate Meal', icon: Sparkles },
   { href: '/customer/meal-planner', label: 'Meal Plan', icon: Calendar },
   { href: '/customer/groceries', label: 'Check List', icon: ClipboardList },

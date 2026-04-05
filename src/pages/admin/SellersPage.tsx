@@ -91,6 +91,7 @@ export function SellersPage() {
     marketLocation: '',
     stallName: '',
     stallNumber: '',
+    stallAddress: '',
     isActive: true
   });
   const [saving, setSaving] = useState(false);
@@ -107,7 +108,8 @@ export function SellersPage() {
     phone: '',
     marketLocation: 'San Nicolas Market',
     stallName: '',
-    stallNumber: ''
+    stallNumber: '',
+    stallAddress: ''
   });
   const [creating, setCreating] = useState(false);
   const [createError, setCreateError] = useState('');
@@ -202,6 +204,7 @@ export function SellersPage() {
       marketLocation: seller.marketLocation || '',
       stallName: seller.stallName || '',
       stallNumber: seller.stallNumber || '',
+      stallAddress: seller.stallAddress || '',
       isActive: seller.isActive
     });
     setEditDialog(true);
@@ -265,7 +268,7 @@ export function SellersPage() {
       const response = await createSeller(token, createForm);
       if (response.success) {
         setCreateDialog(false);
-        setCreateForm({ name: '', email: '', phone: '', marketLocation: 'San Nicolas Market', stallName: '', stallNumber: '' });
+        setCreateForm({ name: '', email: '', phone: '', marketLocation: 'San Nicolas Market', stallName: '', stallNumber: '', stallAddress: '' });
         fetchSellers();
       } else {
         // Handle specific error codes for duplicates
@@ -329,10 +332,10 @@ export function SellersPage() {
           <Card className="border-amber-200 bg-amber-50/50 dark:bg-amber-950/20 dark:border-amber-800">
             <CardHeader className="pb-3">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <Clock className="h-5 w-5 text-amber-600" />
+                <Clock className="h-5 w-5 text-amber-600 dark:text-amber-400" />
                 Pending Seller Requests
                 {sellerRequests.length > 0 && ` (${sellerRequests.length})`}
-                {requestsLoading && <Loader2 className="h-4 w-4 animate-spin text-amber-600" />}
+                {requestsLoading && <Loader2 className="h-4 w-4 animate-spin text-amber-600 dark:text-amber-400" />}
               </CardTitle>
               <CardDescription>
                 {requestsLoading && sellerRequests.length === 0
@@ -458,6 +461,7 @@ export function SellersPage() {
                     <TableHead>Market</TableHead>
                     <TableHead>Stall Name</TableHead>
                     <TableHead>Stall No.</TableHead>
+                    <TableHead>Stall Address</TableHead>
                     <TableHead>Status</TableHead>
                     <TableHead>Verified</TableHead>
                     <TableHead>Joined</TableHead>
@@ -510,6 +514,13 @@ export function SellersPage() {
                         )}
                       </TableCell>
                       <TableCell>
+                        {seller.stallAddress ? (
+                          <span className="text-sm">{seller.stallAddress}</span>
+                        ) : (
+                          <span className="text-muted-foreground">—</span>
+                        )}
+                      </TableCell>
+                      <TableCell>
                         {seller.isActive ? (
                           <Badge className="bg-primary">Active</Badge>
                         ) : (
@@ -518,7 +529,7 @@ export function SellersPage() {
                       </TableCell>
                       <TableCell>
                         {seller.isVerified ? (
-                          <Check className="h-4 w-4 text-green-500" />
+                          <Check className="h-4 w-4 text-green-500 dark:text-green-400" />
                         ) : (
                           <X className="h-4 w-4 text-muted-foreground" />
                         )}
@@ -536,9 +547,9 @@ export function SellersPage() {
                             {togglingStatus === seller._id ? (
                               <Loader2 className="h-4 w-4 animate-spin" />
                             ) : seller.isActive ? (
-                              <PowerOff className="h-4 w-4 text-amber-500" />
+                              <PowerOff className="h-4 w-4 text-amber-500 dark:text-amber-400" />
                             ) : (
-                              <Power className="h-4 w-4 text-green-500" />
+                              <Power className="h-4 w-4 text-green-500 dark:text-green-400" />
                             )}
                           </Button>
                           <Button
@@ -631,6 +642,15 @@ export function SellersPage() {
                     placeholder="e.g., A-15"
                   />
                 </div>
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="edit-stallAddress">Stall Address</Label>
+                <Input
+                  id="edit-stallAddress"
+                  value={editForm.stallAddress}
+                  onChange={(e) => setEditForm({ ...editForm, stallAddress: e.target.value })}
+                  placeholder="Full address of the stall"
+                />
               </div>
               <div className="flex items-center gap-2">
                 <input
@@ -771,6 +791,15 @@ export function SellersPage() {
                     onChange={(e) => setCreateForm({ ...createForm, stallNumber: e.target.value })}
                   />
                 </div>
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="create-stallAddress">Stall Address</Label>
+                <Input
+                  id="create-stallAddress"
+                  value={createForm.stallAddress}
+                  onChange={(e) => setCreateForm({ ...createForm, stallAddress: e.target.value })}
+                  placeholder="Full address of the stall"
+                />
               </div>
               <div className="flex justify-end gap-2 pt-4">
                 <Button type="button" variant="outline" onClick={() => { setCreateDialog(false); setCreateError(''); }}>

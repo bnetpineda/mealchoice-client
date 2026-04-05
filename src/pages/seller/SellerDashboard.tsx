@@ -290,7 +290,7 @@ export function SellerDashboard() {
 
           <div className="flex items-end gap-2">
             <div className="space-y-1">
-              <Label className="text-xs">From</Label>
+              <Label className="text-xs text-foreground">From</Label>
               <Input
                 type="date"
                 value={startDate}
@@ -305,7 +305,7 @@ export function SellerDashboard() {
               />
             </div>
             <div className="space-y-1">
-              <Label className="text-xs">To</Label>
+              <Label className="text-xs text-foreground">To</Label>
               <Input
                 type="date"
                 value={endDate}
@@ -348,21 +348,21 @@ export function SellerDashboard() {
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                   <CardTitle className="text-sm font-medium">Total Revenue</CardTitle>
-                  <Coins className="h-4 w-4 text-green-500" />
+                  <Coins className="h-4 w-4 text-green-500 dark:text-green-400" />
                 </CardHeader>
                 <CardContent>
-                  <div className="text-2xl font-bold text-green-600">
+                  <div className="text-2xl font-bold text-green-600 dark:text-green-400">
                     ₱{analytics?.summary.totalRevenue.toLocaleString('en-PH', { minimumFractionDigits: 2 }) || '0.00'}
                   </div>
                   <div className="flex items-center gap-1 text-xs">
                     {analytics?.summary.revenueChange !== undefined && analytics.summary.revenueChange !== 0 && (
                       <>
                         {analytics.summary.revenueChange > 0 ? (
-                          <TrendingUp className="h-3 w-3 text-green-500" />
+                          <TrendingUp className="h-3 w-3 text-green-500 dark:text-green-400" />
                         ) : (
-                          <TrendingDown className="h-3 w-3 text-red-500" />
+                          <TrendingDown className="h-3 w-3 text-red-500 dark:text-red-400" />
                         )}
-                        <span className={analytics.summary.revenueChange > 0 ? 'text-green-600' : 'text-red-600'}>
+                        <span className={analytics.summary.revenueChange > 0 ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}>
                           {Math.abs(analytics.summary.revenueChange)}% vs last period
                         </span>
                       </>
@@ -374,7 +374,7 @@ export function SellerDashboard() {
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                   <CardTitle className="text-sm font-medium">Total Orders</CardTitle>
-                  <ShoppingCart className="h-4 w-4 text-blue-500" />
+                  <ShoppingCart className="h-4 w-4 text-blue-500 dark:text-blue-400" />
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold">{analytics?.summary.totalOrders || 0}</div>
@@ -392,9 +392,9 @@ export function SellerDashboard() {
                 <CardContent>
                   <div className="text-2xl font-bold">{stats.total}</div>
                   <p className="text-xs text-muted-foreground">
-                    {stats.lowStock > 0 && <span className="text-yellow-600">{stats.lowStock} low stock</span>}
+                    {stats.lowStock > 0 && <span className="text-yellow-600 dark:text-yellow-400">{stats.lowStock} low stock</span>}
                     {stats.lowStock > 0 && stats.outOfStock > 0 && ' · '}
-                    {stats.outOfStock > 0 && <span className="text-red-600">{stats.outOfStock} out</span>}
+                    {stats.outOfStock > 0 && <span className="text-red-600 dark:text-red-400">{stats.outOfStock} out</span>}
                   </p>
                 </CardContent>
               </Card>
@@ -594,7 +594,7 @@ export function SellerDashboard() {
                               <p className="text-sm text-muted-foreground">{product.quantity} sold</p>
                             </div>
                           </div>
-                          <span className="font-medium text-green-600">
+                          <span className="font-medium text-green-600 dark:text-green-400">
                             ₱{product.revenue.toLocaleString('en-PH', { minimumFractionDigits: 2 })}
                           </span>
                         </div>
@@ -612,7 +612,7 @@ export function SellerDashboard() {
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <AlertTriangle className="h-5 w-5 text-yellow-500" />
+                    <AlertTriangle className="h-5 w-5 text-yellow-500 dark:text-yellow-400" />
                     Low Stock Alert
                   </CardTitle>
                   <CardDescription>Products running low on inventory</CardDescription>
@@ -632,7 +632,7 @@ export function SellerDashboard() {
                               {product.quantity} {product.unit} remaining
                             </p>
                           </div>
-                          <Badge variant="outline" className="text-yellow-600 border-yellow-600">
+                          <Badge variant="outline" className="text-yellow-600 dark:text-yellow-400 border-yellow-600 dark:border-yellow-400">
                             Low Stock
                           </Badge>
                         </div>
@@ -654,7 +654,7 @@ export function SellerDashboard() {
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <XCircle className="h-5 w-5 text-red-500" />
+                    <XCircle className="h-5 w-5 text-red-500 dark:text-red-400" />
                     Out of Stock
                   </CardTitle>
                   <CardDescription>Products that need restocking</CardDescription>

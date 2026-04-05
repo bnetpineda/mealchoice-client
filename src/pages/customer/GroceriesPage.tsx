@@ -281,7 +281,7 @@ export default function GroceriesPage() {
                   />
                 </div>
                 {progressPercent === 100 && (
-                  <div className="flex items-center gap-2 mt-3 text-green-600 font-medium">
+                  <div className="flex items-center gap-2 mt-3 text-green-600 dark:text-green-400 font-medium">
                     <Check className="h-5 w-5" />
                     All items checked! You're ready to cook!
                   </div>
@@ -472,7 +472,7 @@ export default function GroceriesPage() {
         <AlertDialogContent>
           <AlertDialogHeader>
             <AlertDialogTitle className="flex items-center gap-2">
-              <AlertCircle className="h-5 w-5 text-amber-500" />
+              <AlertCircle className="h-5 w-5 text-amber-500 dark:text-amber-400" />
               Ingredient Not Available
             </AlertDialogTitle>
             <AlertDialogDescription>

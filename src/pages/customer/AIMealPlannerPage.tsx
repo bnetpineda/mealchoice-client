@@ -369,7 +369,7 @@ export default function AIMealPlannerPage() {
             </span>
             <div className="flex items-center gap-4">
               <Badge variant="secondary" className="gap-1">
-                <Flame className="h-3 w-3 text-orange-500" />
+                <Flame className="h-3 w-3 text-orange-500 dark:text-orange-400" />
                 {dayStats.totalCalories} kcal total
               </Badge>
               <Badge variant="outline">
@@ -572,12 +572,12 @@ export default function AIMealPlannerPage() {
                     {selectedMealForIngredients.mealType}
                   </Badge>
                   {selectedMealForIngredients.estimatedCost && (
-                    <Badge variant="outline" className="text-green-600 border-green-600">
-                      <Coins className="h-3 w-3 mr-1" />
-                      {formatCurrency(selectedMealForIngredients.estimatedCost)}
-                    </Badge>
+                  <Badge variant="outline" className="text-green-600 dark:text-green-400 border-green-600 dark:border-green-400">
+                    <Coins className="h-3 w-3 mr-1" />
+                    {formatCurrency(selectedMealForIngredients.estimatedCost)}
+                  </Badge>
                   )}
-                  <Badge variant="outline" className="text-orange-600 border-orange-600">
+                  <Badge variant="outline" className="text-orange-600 dark:text-orange-400 border-orange-600 dark:border-orange-400">
                     <Flame className="h-3 w-3 mr-1" />
                     {selectedMealForIngredients.calories} kcal
                   </Badge>
@@ -592,7 +592,7 @@ export default function AIMealPlannerPage() {
               {selectedMealForIngredients.healthBenefits && selectedMealForIngredients.healthBenefits.length > 0 && (
                 <div className="mt-4 p-4 rounded-lg bg-green-500/5 border border-green-500/20">
                   <h3 className="text-sm font-semibold flex items-center gap-2 text-foreground mb-3">
-                    <Heart className="h-4 w-4 text-red-500" />
+                    <Heart className="h-4 w-4 text-red-500 dark:text-red-400" />
                     Health Benefits
                   </h3>
                   <div className="flex flex-wrap gap-2">
@@ -712,22 +712,22 @@ export default function AIMealPlannerPage() {
                     <h4 className="text-sm font-semibold text-muted-foreground mb-3">Macronutrients</h4>
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                       <div className="flex flex-col items-center p-4 rounded-xl bg-orange-500/10 border border-orange-500/20">
-                        <Flame className="h-6 w-6 text-orange-500 mb-2" />
+                        <Flame className="h-6 w-6 text-orange-500 dark:text-orange-400 mb-2" />
                         <span className="text-2xl font-bold text-foreground">{selectedMealForIngredients.calories}</span>
                         <span className="text-xs text-muted-foreground">Calories</span>
                       </div>
                       <div className="flex flex-col items-center p-4 rounded-xl bg-red-500/10 border border-red-500/20">
-                        <Beef className="h-6 w-6 text-red-500 mb-2" />
+                        <Beef className="h-6 w-6 text-red-500 dark:text-red-400 mb-2" />
                         <span className="text-2xl font-bold text-foreground">{selectedMealForIngredients.macros?.protein || 'N/A'}</span>
                         <span className="text-xs text-muted-foreground">Protein</span>
                       </div>
                       <div className="flex flex-col items-center p-4 rounded-xl bg-amber-500/10 border border-amber-500/20">
-                        <Apple className="h-6 w-6 text-amber-500 mb-2" />
+                        <Apple className="h-6 w-6 text-amber-500 dark:text-amber-400 mb-2" />
                         <span className="text-2xl font-bold text-foreground">{selectedMealForIngredients.macros?.carbs || 'N/A'}</span>
                         <span className="text-xs text-muted-foreground">Carbs</span>
                       </div>
                       <div className="flex flex-col items-center p-4 rounded-xl bg-yellow-500/10 border border-yellow-500/20">
-                        <Droplets className="h-6 w-6 text-yellow-500 mb-2" />
+                        <Droplets className="h-6 w-6 text-yellow-500 dark:text-yellow-400 mb-2" />
                         <span className="text-2xl font-bold text-foreground">{selectedMealForIngredients.macros?.fats || 'N/A'}</span>
                         <span className="text-xs text-muted-foreground">Fats</span>
                       </div>
@@ -740,17 +740,17 @@ export default function AIMealPlannerPage() {
                       <h4 className="text-sm font-semibold text-muted-foreground mb-3">Additional Nutrition</h4>
                       <div className="grid grid-cols-3 gap-3">
                         <div className="flex flex-col items-center p-4 rounded-xl bg-green-500/10 border border-green-500/20">
-                          <Salad className="h-5 w-5 text-green-500 mb-2" />
+                          <Salad className="h-5 w-5 text-green-500 dark:text-green-400 mb-2" />
                           <span className="text-xl font-bold text-foreground">{selectedMealForIngredients.nutrition.fiber}</span>
                           <span className="text-xs text-muted-foreground">Fiber</span>
                         </div>
                         <div className="flex flex-col items-center p-4 rounded-xl bg-pink-500/10 border border-pink-500/20">
-                          <Cookie className="h-5 w-5 text-pink-500 mb-2" />
+                          <Cookie className="h-5 w-5 text-pink-500 dark:text-pink-400 mb-2" />
                           <span className="text-xl font-bold text-foreground">{selectedMealForIngredients.nutrition.sugar}</span>
                           <span className="text-xs text-muted-foreground">Sugar</span>
                         </div>
                         <div className="flex flex-col items-center p-4 rounded-xl bg-blue-500/10 border border-blue-500/20">
-                          <Info className="h-5 w-5 text-blue-500 mb-2" />
+                          <Info className="h-5 w-5 text-blue-500 dark:text-blue-400 mb-2" />
                           <span className="text-xl font-bold text-foreground">{selectedMealForIngredients.nutrition.sodium}</span>
                           <span className="text-xs text-muted-foreground">Sodium</span>
                         </div>

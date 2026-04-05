@@ -118,6 +118,7 @@ export interface SellerRequestData {
   preferredMarket: string;
   stallName?: string;
   stallNumber?: string;
+  stallAddress?: string;
   message?: string;
 }
 

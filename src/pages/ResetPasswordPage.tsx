@@ -75,8 +75,8 @@ export function ResetPasswordPage() {
                 <Card className="relative w-full max-w-md shadow-lg">
                     <CardContent className="pt-8 pb-8 text-center">
                         <div className="flex justify-center mb-4">
-                            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
-                                <CheckCircle className="h-8 w-8 text-green-600" />
+                            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/30">
+                                <CheckCircle className="h-8 w-8 text-green-600 dark:text-green-400" />
                             </div>
                         </div>
                         <h2 className="text-2xl font-bold mb-2">Password Reset!</h2>
@@ -105,8 +105,8 @@ export function ResetPasswordPage() {
                 <Card className="relative w-full max-w-md shadow-lg">
                     <CardContent className="pt-8 pb-8 text-center">
                         <div className="flex justify-center mb-4">
-                            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-red-100">
-                                <XCircle className="h-8 w-8 text-red-600" />
+                            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-red-100 dark:bg-red-900/30">
+                                <XCircle className="h-8 w-8 text-red-600 dark:text-red-400" />
                             </div>
                         </div>
                         <h2 className="text-2xl font-bold mb-2">Link Expired</h2>

@@ -67,10 +67,10 @@ export function AdminDashboard() {
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0">
                   <CardTitle className="text-sm font-medium">Verified Sellers</CardTitle>
-                  <UserCheck className="h-4 w-4 text-green-500" />
+                  <UserCheck className="h-4 w-4 text-green-500 dark:text-green-400" />
                 </CardHeader>
                 <CardContent>
-                  <div className="text-2xl font-bold text-green-600">{stats.verifiedSellers}</div>
+                  <div className="text-2xl font-bold text-green-600 dark:text-green-400">{stats.verifiedSellers}</div>
                   <p className="text-xs text-muted-foreground">
                     {stats.pendingSellers} pending verification
                   </p>
@@ -119,14 +119,14 @@ export function AdminDashboard() {
                         <div className="h-2 w-2 rounded-full bg-green-500" />
                         <span className="text-sm">Active Sellers</span>
                       </div>
-                      <span className="font-semibold text-green-600">{stats.activeSellers}</span>
+                      <span className="font-semibold text-green-600 dark:text-green-400">{stats.activeSellers}</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
                         <div className="h-2 w-2 rounded-full bg-red-500" />
                         <span className="text-sm">Inactive Sellers</span>
                       </div>
-                      <span className="font-semibold text-red-600">{stats.inactiveSellers}</span>
+                      <span className="font-semibold text-red-600 dark:text-red-400">{stats.inactiveSellers}</span>
                     </div>
                   </div>
                 </CardContent>
@@ -144,14 +144,14 @@ export function AdminDashboard() {
                         <div className="h-2 w-2 rounded-full bg-green-500" />
                         <span className="text-sm">Active Customers</span>
                       </div>
-                      <span className="font-semibold text-green-600">{stats.activeCustomers}</span>
+                      <span className="font-semibold text-green-600 dark:text-green-400">{stats.activeCustomers}</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
                         <div className="h-2 w-2 rounded-full bg-red-500" />
                         <span className="text-sm">Inactive Customers</span>
                       </div>
-                      <span className="font-semibold text-red-600">{stats.inactiveCustomers}</span>
+                      <span className="font-semibold text-red-600 dark:text-red-400">{stats.inactiveCustomers}</span>
                     </div>
                   </div>
                 </CardContent>

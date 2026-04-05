@@ -132,7 +132,7 @@ export function PendingSellersPage() {
         ) : sellers.length === 0 ? (
           <Card>
             <CardContent className="py-12 text-center">
-              <UserCheck className="h-12 w-12 mx-auto text-green-500 mb-4" />
+              <UserCheck className="h-12 w-12 mx-auto text-green-500 dark:text-green-400 mb-4" />
               <h3 className="text-lg font-semibold mb-2">No pending sellers</h3>
               <p className="text-muted-foreground">
                 All seller registrations have been processed.
@@ -161,7 +161,7 @@ export function PendingSellersPage() {
                           </span>
                         </div>
                       </div>
-                      <Badge variant="outline" className="text-yellow-600 border-yellow-600">
+                      <Badge variant="outline" className="text-yellow-600 dark:text-yellow-400 border-yellow-600 dark:border-yellow-400">
                         <Clock className="h-3 w-3 mr-1" />
                         Pending
                       </Badge>

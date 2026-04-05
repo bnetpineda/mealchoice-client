@@ -9,6 +9,7 @@ export interface Seller {
   marketLocation: string | null;
   stallName: string | null;
   stallNumber: string | null;
+  stallAddress: string | null;
   isActive: boolean;
   isVerified: boolean;
   verifiedAt: string | null;
@@ -158,7 +159,7 @@ export async function rejectSeller(token: string, sellerId: string): Promise<Adm
 // Create new seller account
 export async function createSeller(
   token: string,
-  data: { name: string; email: string; phone: string; marketLocation: string; stallName?: string; stallNumber?: string }
+  data: { name: string; email: string; phone: string; marketLocation: string; stallName?: string; stallNumber?: string; stallAddress?: string }
 ): Promise<AdminResponse> {
   const response = await fetch(`${API_BASE_URL}/admin/sellers`, {
     method: 'POST',
@@ -372,6 +373,7 @@ export interface SellerRequest {
   preferredMarket: string;
   stallName: string | null;
   stallNumber: string | null;
+  stallAddress: string | null;
   message: string | null;
   status: 'pending' | 'approved' | 'rejected';
   createdAt: string;

@@ -37,6 +37,7 @@ export function SellerRequestDialog({ trigger }: SellerRequestDialogProps) {
     const [market, setMarket] = useState('');
     const [stallName, setStallName] = useState('');
     const [stallNumber, setStallNumber] = useState('');
+    const [stallAddress, setStallAddress] = useState('');
     const [message, setMessage] = useState('');
 
     // Format phone number: auto-add +63 and format as +639XXXXXXXXX
@@ -60,6 +61,7 @@ export function SellerRequestDialog({ trigger }: SellerRequestDialogProps) {
         setMarket('');
         setStallName('');
         setStallNumber('');
+        setStallAddress('');
         setMessage('');
         setError('');
         setSuccess(false);
@@ -90,6 +92,7 @@ export function SellerRequestDialog({ trigger }: SellerRequestDialogProps) {
                 preferredMarket: market,
                 stallName: stallName || undefined,
                 stallNumber: stallNumber || undefined,
+                stallAddress: stallAddress || undefined,
                 message: message || undefined,
             });
 
@@ -225,6 +228,17 @@ export function SellerRequestDialog({ trigger }: SellerRequestDialogProps) {
                                         disabled={loading}
                                     />
                                 </div>
+                            </div>
+
+                            <div className="space-y-2">
+                                <Label htmlFor="stall-address">Stall Address</Label>
+                                <Input
+                                    id="stall-address"
+                                    value={stallAddress}
+                                    onChange={(e) => setStallAddress(e.target.value)}
+                                    placeholder="Full address of your stall (Optional)"
+                                    disabled={loading}
+                                />
                             </div>
 
                             <div className="space-y-2">

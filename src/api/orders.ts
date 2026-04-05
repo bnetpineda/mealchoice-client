@@ -22,7 +22,7 @@ export interface DeliveryAddress {
 export interface Order {
   _id: string;
   buyer: { _id: string; name: string; email?: string };
-  seller: { _id: string; name: string; stallName?: string; stallNumber?: string };
+  seller: { _id: string; name: string; stallName?: string; stallNumber?: string; stallAddress?: string };
   items: OrderItem[];
   total: number;
   status: 'pending' | 'confirmed' | 'preparing' | 'ready' | 'completed' | 'cancelled';

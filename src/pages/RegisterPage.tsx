@@ -105,8 +105,8 @@ export function RegisterPage() {
         <Card className="relative w-full max-w-md shadow-lg">
           <CardContent className="pt-8 pb-8 text-center">
             <div className="flex justify-center mb-4">
-              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
-                <CheckCircle className="h-8 w-8 text-green-600" />
+              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/30">
+                <CheckCircle className="h-8 w-8 text-green-600 dark:text-green-400" />
               </div>
             </div>
             <h2 className="text-2xl font-bold mb-2">Check Your Email!</h2>

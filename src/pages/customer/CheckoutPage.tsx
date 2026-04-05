@@ -534,7 +534,7 @@ export function CheckoutPage() {
               <div className="flex items-center space-x-3 p-3 border rounded-lg cursor-pointer hover:bg-muted/50">
                 <RadioGroupItem value="pickup" id="pickup" />
                 <Label htmlFor="pickup" className="flex items-center gap-2 cursor-pointer flex-1">
-                  <Store className="h-5 w-5 text-green-500" />
+                  <Store className="h-5 w-5 text-green-500 dark:text-green-400" />
                   <div>
                     <p className="font-medium">Self Pickup</p>
                     <p className="text-sm text-muted-foreground">Pick up at the market stall</p>
@@ -547,7 +547,7 @@ export function CheckoutPage() {
                 <div className="flex items-center space-x-3 p-3 border rounded-lg cursor-pointer hover:bg-muted/50">
                   <RadioGroupItem value="delivery" id="delivery" />
                   <Label htmlFor="delivery" className="flex items-center gap-2 cursor-pointer flex-1">
-                    <Truck className="h-5 w-5 text-blue-500" />
+                    <Truck className="h-5 w-5 text-blue-500 dark:text-blue-400" />
                     <div className="flex-1">
                       <p className="font-medium">Home Delivery</p>
                       <p className="text-sm text-muted-foreground">Seller will arrange delivery</p>
@@ -750,7 +750,7 @@ export function CheckoutPage() {
         <AlertDialogContent>
           <AlertDialogHeader>
             <AlertDialogTitle className="flex items-center gap-2">
-              <AlertTriangle className="h-5 w-5 text-amber-500" />
+              <AlertTriangle className="h-5 w-5 text-amber-500 dark:text-amber-400" />
               Order Exceeds Budget
             </AlertDialogTitle>
             <AlertDialogDescription className="text-left space-y-2">

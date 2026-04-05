@@ -378,6 +378,9 @@ export function OrdersPage() {
                     {order.marketLocation}
                     {order.seller?.stallNumber && ` • Stall ${order.seller.stallNumber}`}
                   </p>
+                  {order.seller?.stallAddress && (
+                    <p className="text-xs text-muted-foreground mt-0.5">{order.seller.stallAddress}</p>
+                  )}
                 </div>
                 <div className="flex flex-col items-end gap-1">
                   <Badge variant="outline" className={`${status.color} gap-1 shadow-none`}>
@@ -751,10 +754,15 @@ export function OrdersPage() {
                       )}
                     </div>
                   )}
-                  {selectedOrder.deliveryType === 'pickup' && selectedOrder.seller?.stallNumber && (
-                    <p className="text-sm text-muted-foreground">
-                      Pick up at Stall {selectedOrder.seller.stallNumber}
-                    </p>
+                  {selectedOrder.deliveryType === 'pickup' && (
+                    <div className="text-sm text-muted-foreground space-y-1">
+                      {selectedOrder.seller?.stallNumber && (
+                        <p>Pick up at Stall {selectedOrder.seller.stallNumber}</p>
+                      )}
+                      {selectedOrder.seller?.stallAddress && (
+                        <p className="text-xs">{selectedOrder.seller.stallAddress}</p>
+                      )}
+                    </div>
                   )}
                 </div>
 

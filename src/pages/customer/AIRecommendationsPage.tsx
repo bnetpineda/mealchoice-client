@@ -214,15 +214,15 @@ export default function AIRecommendationsPage() {
 
                 <div className="flex flex-wrap gap-4">
                   <div className="flex items-center gap-2 bg-background/50 backdrop-blur-md px-4 py-2 rounded-xl border border-border">
-                    <CheckCircle2 className="h-5 w-5 text-green-500" />
+                    <CheckCircle2 className="h-5 w-5 text-green-500 dark:text-green-400" />
                     <span className="text-sm font-medium text-foreground">Category Based</span>
                   </div>
                   <div className="flex items-center gap-2 bg-background/50 backdrop-blur-md px-4 py-2 rounded-xl border border-border">
-                    <CheckCircle2 className="h-5 w-5 text-green-500" />
+                    <CheckCircle2 className="h-5 w-5 text-green-500 dark:text-green-400" />
                     <span className="text-sm font-medium text-foreground">Save to Schedule</span>
                   </div>
                   <div className="flex items-center gap-2 bg-background/50 backdrop-blur-md px-4 py-2 rounded-xl border border-border">
-                    <CheckCircle2 className="h-5 w-5 text-green-500" />
+                    <CheckCircle2 className="h-5 w-5 text-green-500 dark:text-green-400" />
                     <span className="text-sm font-medium text-foreground">Personalized</span>
                   </div>
                 </div>
@@ -301,7 +301,7 @@ export default function AIRecommendationsPage() {
                       <Icon className="h-4 w-4" />
                       <span className="font-semibold">{category.label}</span>
                       {hasData && (
-                        <div className="h-2 w-2 rounded-full bg-green-500" />
+                        <div className="h-2 w-2 rounded-full bg-green-500 dark:bg-green-400" />
                       )}
                     </div>
                     <span className="text-xs opacity-70 hidden sm:block">{category.description}</span>
@@ -387,7 +387,7 @@ export default function AIRecommendationsPage() {
                             <CardHeader className="pb-4">
                               <div className="flex justify-between items-start mb-2">
                                 <div className="flex items-center gap-1 font-bold text-lg text-primary">
-                                  <Coins className="h-4 w-4 text-green-500" />
+                                  <Coins className="h-4 w-4 text-green-500 dark:text-green-400" />
                                   <span>{formatCurrency(meal.estimatedCost)}</span>
                                 </div>
                               </div>
@@ -399,17 +399,17 @@ export default function AIRecommendationsPage() {
                             <CardContent className="flex-1">
                               <div className="grid grid-cols-3 gap-2 mb-6">
                                 <div className="flex flex-col items-center p-2 rounded-lg bg-muted/50">
-                                  <Flame className="h-4 w-4 text-orange-500 mb-1" />
+                                  <Flame className="h-4 w-4 text-orange-500 dark:text-orange-400 mb-1" />
                                   <span className="text-xs font-bold">{meal.calories}</span>
                                   <span className="text-[10px] text-muted-foreground uppercase">Kcal</span>
                                 </div>
                                 <div className="flex flex-col items-center p-2 rounded-lg bg-muted/50">
-                                  <Beef className="h-4 w-4 text-red-500 mb-1" />
+                                  <Beef className="h-4 w-4 text-red-500 dark:text-red-400 mb-1" />
                                   <span className="text-xs font-bold">{meal.macros.protein}</span>
                                   <span className="text-[10px] text-muted-foreground uppercase">Protein</span>
                                 </div>
                                 <div className="flex flex-col items-center p-2 rounded-lg bg-muted/50">
-                                  <Apple className="h-4 w-4 text-green-500 mb-1" />
+                                  <Apple className="h-4 w-4 text-green-500 dark:text-green-400 mb-1" />
                                   <span className="text-xs font-bold">{meal.macros.carbs}</span>
                                   <span className="text-[10px] text-muted-foreground uppercase">Carbs</span>
                                 </div>
@@ -440,7 +440,7 @@ export default function AIRecommendationsPage() {
                                 {isSaving ? (
                                   <Loader2 className="h-4 w-4 animate-spin" />
                                 ) : isSaved ? (
-                                  <CheckCircle2 className="h-4 w-4 text-green-500" />
+                                  <CheckCircle2 className="h-4 w-4 text-green-500 dark:text-green-400" />
                                 ) : (
                                   <Calendar className="h-4 w-4" />
                                 )}
@@ -555,11 +555,11 @@ export default function AIRecommendationsPage() {
                     <Sparkles className="h-3 w-3 mr-1" />
                     AI Generated
                   </Badge>
-                  <Badge variant="outline" className="text-green-600 border-green-600">
+                  <Badge variant="outline" className="text-green-600 dark:text-green-400 border-green-600 dark:border-green-400">
                     <Coins className="h-3 w-3 mr-1" />
                     {formatCurrency(selectedMeal.estimatedCost)}
                   </Badge>
-                  <Badge variant="outline" className="text-orange-600 border-orange-600">
+                  <Badge variant="outline" className="text-orange-600 dark:text-orange-400 border-orange-600 dark:border-orange-400">
                     <Flame className="h-3 w-3 mr-1" />
                     {selectedMeal.calories} kcal
                   </Badge>
@@ -574,7 +574,7 @@ export default function AIRecommendationsPage() {
               {selectedMeal.healthBenefits && selectedMeal.healthBenefits.length > 0 && (
                 <div className="mt-4 p-4 rounded-lg bg-green-500/5 border border-green-500/20">
                   <h3 className="text-sm font-semibold flex items-center gap-2 text-foreground mb-3">
-                    <Heart className="h-4 w-4 text-red-500" />
+                    <Heart className="h-4 w-4 text-red-500 dark:text-red-400" />
                     Health Benefits
                   </h3>
                   <div className="flex flex-wrap gap-2">
@@ -654,24 +654,24 @@ export default function AIRecommendationsPage() {
                   {/* Macros Grid */}
                   <div>
                     <h4 className="text-sm font-semibold text-muted-foreground mb-3">Macronutrients</h4>
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                       <div className="flex flex-col items-center p-4 rounded-xl bg-orange-500/10 border border-orange-500/20">
-                        <Flame className="h-6 w-6 text-orange-500 mb-2" />
+                        <Flame className="h-6 w-6 text-orange-500 dark:text-orange-400 mb-2" />
                         <span className="text-2xl font-bold text-foreground">{selectedMeal.calories}</span>
                         <span className="text-xs text-muted-foreground">Calories</span>
                       </div>
                       <div className="flex flex-col items-center p-4 rounded-xl bg-red-500/10 border border-red-500/20">
-                        <Beef className="h-6 w-6 text-red-500 mb-2" />
+                        <Beef className="h-6 w-6 text-red-500 dark:text-red-400 mb-2" />
                         <span className="text-2xl font-bold text-foreground">{selectedMeal.macros.protein}</span>
                         <span className="text-xs text-muted-foreground">Protein</span>
                       </div>
                       <div className="flex flex-col items-center p-4 rounded-xl bg-amber-500/10 border border-amber-500/20">
-                        <Apple className="h-6 w-6 text-amber-500 mb-2" />
+                        <Apple className="h-6 w-6 text-amber-500 dark:text-amber-400 mb-2" />
                         <span className="text-2xl font-bold text-foreground">{selectedMeal.macros.carbs}</span>
                         <span className="text-xs text-muted-foreground">Carbs</span>
                       </div>
                       <div className="flex flex-col items-center p-4 rounded-xl bg-yellow-500/10 border border-yellow-500/20">
-                        <Droplets className="h-6 w-6 text-yellow-500 mb-2" />
+                        <Droplets className="h-6 w-6 text-yellow-500 dark:text-yellow-400 mb-2" />
                         <span className="text-2xl font-bold text-foreground">{selectedMeal.macros.fats}</span>
                         <span className="text-xs text-muted-foreground">Fats</span>
                       </div>
@@ -684,17 +684,17 @@ export default function AIRecommendationsPage() {
                       <h4 className="text-sm font-semibold text-muted-foreground mb-3">Additional Nutrition</h4>
                       <div className="grid grid-cols-3 gap-3">
                         <div className="flex flex-col items-center p-4 rounded-xl bg-green-500/10 border border-green-500/20">
-                          <Salad className="h-5 w-5 text-green-500 mb-2" />
+                          <Salad className="h-5 w-5 text-green-500 dark:text-green-400 mb-2" />
                           <span className="text-xl font-bold text-foreground">{selectedMeal.nutrition.fiber}</span>
                           <span className="text-xs text-muted-foreground">Fiber</span>
                         </div>
                         <div className="flex flex-col items-center p-4 rounded-xl bg-pink-500/10 border border-pink-500/20">
-                          <Cookie className="h-5 w-5 text-pink-500 mb-2" />
+                          <Cookie className="h-5 w-5 text-pink-500 dark:text-pink-400 mb-2" />
                           <span className="text-xl font-bold text-foreground">{selectedMeal.nutrition.sugar}</span>
                           <span className="text-xs text-muted-foreground">Sugar</span>
                         </div>
                         <div className="flex flex-col items-center p-4 rounded-xl bg-blue-500/10 border border-blue-500/20">
-                          <Info className="h-5 w-5 text-blue-500 mb-2" />
+                          <Info className="h-5 w-5 text-blue-500 dark:text-blue-400 mb-2" />
                           <span className="text-xl font-bold text-foreground">{selectedMeal.nutrition.sodium}</span>
                           <span className="text-xs text-muted-foreground">Sodium</span>
                         </div>

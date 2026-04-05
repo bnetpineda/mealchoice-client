@@ -269,9 +269,12 @@ export function BrowseProducts() {
                         </div>
 
                         {typeof product.seller === 'object' && product.seller && (
-                          <p className="text-xs text-muted-foreground mt-2">
+                          <Link
+                            to={`/customer/stalls/${product.seller._id}`}
+                            className="text-xs text-muted-foreground mt-2 inline-block hover:text-primary transition-colors"
+                          >
                             Sold by: {product.seller.name}
-                          </p>
+                          </Link>
                         )}
                       </CardContent>
                     </Card>

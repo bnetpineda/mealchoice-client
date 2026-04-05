@@ -60,7 +60,7 @@ export function SellerMessagesPage() {
                 >
                     <div className="h-full flex flex-col">
                         <div className="p-4 border-b">
-                            <h1 className="text-lg font-semibold">Messages</h1>
+                            <h1 className="text-lg font-semibold text-foreground">Messages</h1>
                             <p className="text-sm text-muted-foreground">
                                 Chat with your customers
                             </p>
@@ -98,7 +98,7 @@ export function SellerMessagesPage() {
                             <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                                 <MessageSquare className="h-8 w-8 text-primary" />
                             </div>
-                            <h2 className="text-xl font-semibold mb-2">Your Messages</h2>
+                            <h2 className="text-xl font-semibold mb-2 text-foreground">Your Messages</h2>
                             <p className="text-muted-foreground max-w-sm">
                                 Select a conversation to view messages from your customers.
                                 You'll receive messages when customers reach out about your products.

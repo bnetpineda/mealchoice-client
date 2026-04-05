@@ -80,6 +80,7 @@ export function SellerSettingsPage() {
   const [acceptsQR, setAcceptsQR] = useState(false);
   const [hasOwnDelivery, setHasOwnDelivery] = useState(false);
   const [qrPreview, setQrPreview] = useState<string | null>(null);
+  const [stallAddress, setStallAddress] = useState('');
 
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState({ type: '', text: '' });
@@ -109,6 +110,7 @@ export function SellerSettingsPage() {
           setNotifyLowStock(s.notifyLowStock ?? true);
           setAcceptsQR(s.acceptsQR ?? false);
           setHasOwnDelivery(s.hasOwnDelivery ?? false);
+          setStallAddress(s.stallAddress || '');
           if (s.paymentQR) {
             setQrPreview(getImageUrl(s.paymentQR));
           }
@@ -232,6 +234,23 @@ export function SellerSettingsPage() {
       });
     } catch (error) {
       console.error('Error updating settings:', error);
+    }
+  };
+
+  const handleUpdateStallAddress = async () => {
+    if (!token) return;
+    setSaving(true);
+    try {
+      const response = await updateSellerSettings(token, { stallAddress: stallAddress.trim() || undefined });
+      if (response.success) {
+        showMessage('success', 'Stall address updated');
+      } else {
+        showMessage('error', response.message || 'Failed to update');
+      }
+    } catch {
+      showMessage('error', 'Error updating stall address');
+    } finally {
+      setSaving(false);
     }
   };
 
@@ -442,7 +461,7 @@ export function SellerSettingsPage() {
                   <MapPin className="h-5 w-5" />
                   Store Location
                 </CardTitle>
-                <CardDescription>Your assigned market location</CardDescription>
+                <CardDescription>Your stall location information</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -459,7 +478,25 @@ export function SellerSettingsPage() {
                     <Input value={settings?.stallNumber || 'Not set'} disabled />
                   </div>
                 </div>
-                <p className="text-xs text-muted-foreground">Contact admin to update location information</p>
+                <div className="space-y-2">
+                  <Label htmlFor="stall-address">Stall Address</Label>
+                  <Input
+                    id="stall-address"
+                    value={stallAddress}
+                    onChange={(e) => setStallAddress(e.target.value)}
+                    placeholder="Enter your stall's full address"
+                  />
+                </div>
+                <Button onClick={handleUpdateStallAddress} disabled={saving} className="w-full md:w-auto">
+                  {saving ? (
+                    <>
+                      <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                      Saving...
+                    </>
+                  ) : (
+                    'Save Address'
+                  )}
+                </Button>
               </CardContent>
             </Card>
 

@@ -10,17 +10,18 @@ import { Toaster } from './components/ui/sonner';
 
 // Seller pages
 import { SellerDashboard } from './pages/seller/SellerDashboard';
-import { ProductsPage } from './pages/seller/ProductsPage';
+import { ProductsInventoryPage } from './pages/seller/ProductsInventoryPage';
 import { SellerOrdersPage } from './pages/seller/SellerOrdersPage';
 import { SellerMessagesPage } from './pages/seller/SellerMessagesPage';
 import { SellerSettingsPage } from './pages/seller/SellerSettingsPage';
-import { InventoryPage } from './pages/seller/InventoryPage';
 import { SellerTutorialPage } from './pages/seller/SellerTutorialPage';
 
 
 // Customer pages
 import { CustomerDashboard } from './pages/customer/CustomerDashboard';
 import { BrowseProducts } from './pages/customer/BrowseProducts';
+import { StallDirectory } from './pages/customer/StallDirectory';
+import { StallProfile } from './pages/customer/StallProfile';
 import { BudgetSettings } from './pages/customer/BudgetSettings';
 import { CartPage } from './pages/customer/CartPage';
 import { CheckoutPage } from './pages/customer/CheckoutPage';
@@ -162,6 +163,22 @@ function App() {
                   }
                 />
                 <Route
+                  path="/customer/stalls"
+                  element={
+                    <ProtectedRoute allowedRoles={['customer']}>
+                      <StallDirectory />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/customer/stalls/:sellerId"
+                  element={
+                    <ProtectedRoute allowedRoles={['customer']}>
+                      <StallProfile />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
                   path="/customer/cart"
                   element={
                     <ProtectedRoute allowedRoles={['customer']}>
@@ -255,7 +272,7 @@ function App() {
                   path="/seller/products"
                   element={
                     <ProtectedRoute allowedRoles={['seller']}>
-                      <ProductsPage />
+                      <ProductsInventoryPage />
                     </ProtectedRoute>
                   }
                 />
@@ -278,9 +295,7 @@ function App() {
                 <Route
                   path="/seller/inventory"
                   element={
-                    <ProtectedRoute allowedRoles={['seller']}>
-                      <InventoryPage />
-                    </ProtectedRoute>
+                    <Navigate to="/seller/products" replace />
                   }
                 />
                 <Route

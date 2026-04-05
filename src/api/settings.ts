@@ -26,6 +26,7 @@ export interface UserSettings {
   marketLocation?: string;
   stallName?: string;
   stallNumber?: string;
+  stallAddress?: string;
   operatingHours?: OperatingHours;
   customCategories?: string[];
   notifyNewOrders?: boolean;
@@ -133,6 +134,7 @@ export async function updateSellerSettings(
     acceptsQR?: boolean;
     hasOwnDelivery?: boolean;
     customCategories?: string[];
+    stallAddress?: string;
   }
 ): Promise<SettingsResponse> {
   const response = await fetch(`${API_BASE_URL}/settings/seller`, {

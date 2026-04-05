@@ -295,16 +295,16 @@ export function CustomersPage() {
                       </TableCell>
                       <TableCell>
                         {customer.isEmailVerified ? (
-                          <Check className="h-4 w-4 text-green-500" />
+                          <Check className="h-4 w-4 text-green-500 dark:text-green-400" />
                         ) : (
                           <X className="h-4 w-4 text-muted-foreground" />
                         )}
                       </TableCell>
                       <TableCell>
                         {customer.hasCompletedOnboarding ? (
-                          <Badge variant="outline" className="text-green-600 border-green-600">Complete</Badge>
+                          <Badge variant="outline" className="text-green-600 dark:text-green-400 border-green-600 dark:border-green-400">Complete</Badge>
                         ) : (
-                          <Badge variant="outline" className="text-amber-600 border-amber-600">Pending</Badge>
+                          <Badge variant="outline" className="text-amber-600 dark:text-amber-400 border-amber-600 dark:border-amber-400">Pending</Badge>
                         )}
                       </TableCell>
                       <TableCell>{formatDate(customer.createdAt)}</TableCell>
@@ -320,9 +320,9 @@ export function CustomersPage() {
                             {togglingStatus === customer._id ? (
                               <Loader2 className="h-4 w-4 animate-spin" />
                             ) : customer.isActive ? (
-                              <PowerOff className="h-4 w-4 text-amber-500" />
+                              <PowerOff className="h-4 w-4 text-amber-500 dark:text-amber-400" />
                             ) : (
-                              <Power className="h-4 w-4 text-green-500" />
+                              <Power className="h-4 w-4 text-green-500 dark:text-green-400" />
                             )}
                           </Button>
                           <Button
