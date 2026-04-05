@@ -112,20 +112,6 @@ export function ProductsInventoryPage() {
     }
   };
 
-  const fetchSettings = async () => {
-    if (!token) return;
-    try {
-      const response = await getSettings(token);
-      if (response.success && response.settings) {
-        const cats = response.settings.customCategories || [];
-        setCustomCategories(cats);
-        setLastSavedCategories(cats);
-      }
-    } catch (error) {
-      console.error('Error fetching settings:', error);
-    }
-  };
-
   useEffect(() => {
     const fetchData = async () => {
       if (!token) return;

@@ -25,7 +25,6 @@ import {
   Menu,
   X,
   ChevronRight,
-  Warehouse,
   Store,
   Video
 } from 'lucide-react';

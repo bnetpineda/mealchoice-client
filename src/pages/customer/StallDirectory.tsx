@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { CustomerLayout } from '@/components/layout/CustomerLayout';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -13,7 +13,6 @@ import {
   Store,
   Clock,
   Package,
-  CreditCard,
   Truck,
   Loader2,
   QrCode
@@ -58,7 +57,7 @@ function getMarketLabel(market: string | null) {
 }
 
 export function StallDirectory() {
-  const { user } = useAuth();
+  const { token } = useAuth();
   const navigate = useNavigate();
   const [stalls, setStalls] = useState<Seller[]>([]);
   const [loading, setLoading] = useState(true);
@@ -69,7 +68,7 @@ export function StallDirectory() {
     const fetchStalls = async () => {
       setLoading(true);
       try {
-        const response = await getVerifiedSellers(user?.token || '', selectedMarket || undefined);
+        const response = await getVerifiedSellers(token || '', selectedMarket || undefined);
         if (response.success && response.sellers) {
           setStalls(response.sellers);
         }
@@ -81,7 +80,7 @@ export function StallDirectory() {
     };
 
     fetchStalls();
-  }, [user?.token, selectedMarket]);
+  }, [token, selectedMarket]);
 
   const filteredStalls = stalls.filter(stall => {
     if (!searchQuery) return true;
@@ -214,10 +213,10 @@ export function StallDirectory() {
                       </div>
                       <div className="flex items-center gap-1">
                         {stall.acceptsQR && (
-                          <QrCode className="h-3.5 w-3.5 text-muted-foreground" title="Accepts QR payments" />
+                          <span title="Accepts QR payments"><QrCode className="h-3.5 w-3.5 text-muted-foreground" /></span>
                         )}
                         {stall.hasOwnDelivery && (
-                          <Truck className="h-3.5 w-3.5 text-muted-foreground" title="Has own delivery" />
+                          <span title="Has own delivery"><Truck className="h-3.5 w-3.5 text-muted-foreground" /></span>
                         )}
                       </div>
                     </div>
